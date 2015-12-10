@@ -1,23 +1,19 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="jumbotron" >
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+  api_key: 77p7nwrcf94o0x
+  authorize: true
+  </script>
+  <input type="button" ng-click="main.onLinkedInLoad()" value="Sign in using LinkedIn account" />
+  <input type="button" ng-click="main.getCommitData()" value="commit" />
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+  <input type="button" ng-click="main.onLogout()" value="Logout" />
+  <pre><span>
+    <p>{{main.heppe.id}}</p>
+    <p>{{main.heppe.headline}}</p>
+    <p>{{main.heppe.name}}</p>
+    <p>{{main.heppe.email}}</p>
+    <img src="{{main.heppe.img}}" />
+  </span></pre>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript {{awesomeThings}}.</p>
 </div>
