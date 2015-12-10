@@ -1,17 +1,23 @@
-var mongoose = require('mongoose');
+'use strict'
+
+var mongoose = require('mongoose')
 
 var personSchema = {
-    firstName: String,
+    firstName: {
+        type: String,
+        required: true
+    },
     lastName: {
         type: String,
-        required: true,
+        required: true
     },
     email: {
         type: String,
-        unique: true,
-        required: true
+        required: true,
+        unique: true
     }
 }
-var Person = mongoose.model('Person', personSchema, 'people');
 
-module.exports = Person;
+var Person = mongoose.model('Person', personSchema, 'people')
+
+module.exports = Person

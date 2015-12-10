@@ -1,16 +1,16 @@
-'use strict';
-var express = require('express');
-var endpoints = require('./endpoints');
+'use strict'
+var express = require('express')
+var endpoints = require('./endpoints')
 
-var app = express();
+var app = express()
 
 for (var key in endpoints) {
-    var endpoint = endpoints[key];
+    var endpoint = endpoints[key]
 
     if (endpoint.middleware)
-        app[endpoint.method](endpoint.url, endpoint.middleware, endpoint.handler);
+        app[endpoint.method](endpoint.url, endpoint.middleware, endpoint.handler)
     else
-        app[endpoint.method](endpoint.url, endpoint.handler);
+        app[endpoint.method](endpoint.url, endpoint.handler)
 }
 
-module.exports = app;
+module.exports = app

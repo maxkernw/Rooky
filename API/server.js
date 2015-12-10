@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 var bodyParser = require('body-parser')
 var cors = require('cors')
 var express = require('express')

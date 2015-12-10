@@ -1,7 +1,7 @@
-'use strict';
-var endpoints = {};
-var documentation = require('./handlers/documentation');
-var person = require('./handlers/person');
+'use strict'
+var endpoints = {}
+var documentation = require('./handlers/documentation')
+var person = require('./handlers/person')
 
 endpoints.ping = {
     url: '/ping',
@@ -12,7 +12,7 @@ endpoints.ping = {
     expectedOutput: 'Response saying pong',
     handerName: 'none',
     handler: function(req, res) {
-        res.status(200).send('pong');
+        res.status(200).send('pong')
     }
 }
 
@@ -25,7 +25,7 @@ endpoints.documentation = {
     expectedOutput: 'The documentation of the API',
     handlerName: 'documentation',
     handler: function(req, res) {
-        documentation.getDocs(req, res, endpoints);
+        documentation.getDocs(req, res, endpoints)
     }
 }
 
@@ -38,7 +38,7 @@ endpoints.getAllUsers = {
     expectedOutput: '',
     handlerName: 'findAll',
     handler: function(req, res) {
-        person.findAll(req, res);
+        person.findAll(req, res)
     }
 }
 
@@ -93,4 +93,5 @@ endpoints.deleteUser = {
         person.delete(req, res)
     }
 }
-module.exports = endpoints;
+
+module.exports = endpoints

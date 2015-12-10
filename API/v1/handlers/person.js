@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 var person = {}
 var controller = require('../controllers/personController')
 
