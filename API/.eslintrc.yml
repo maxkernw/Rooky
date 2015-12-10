@@ -1,0 +1,54 @@
+rules:
+  indent:
+    - 2
+    - 4
+  quotes:
+    - 2
+    - single
+  linebreak-style:
+    - 2
+    - unix
+  eqeqeq:
+    - 2
+    - smart
+  complexity:
+    - 2
+    - 5
+  no-undef:
+    - 2
+  yoda:
+    - 2
+    - never
+  no-undef:
+    - 2
+  no-shadow:
+    - 2
+  no-global-strict:
+    - 0
+  no-extra-strict:
+    - 0
+  strict:
+    - 0
+  max-params:
+    - 2
+    - 4
+  max-depth:
+    - 2
+    - 3
+  max-nested-callbacks:
+    - 2
+    - 3
+  max-statements:
+    - 2
+    - 50
+env:
+  es6: true
+  node: true
+  browser: true
+  amd: true
+
+globals:
+  exports: true
+  module: true
+  console: true
+extends: 'eslint:recommended'

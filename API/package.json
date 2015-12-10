@@ -1,18 +1,20 @@
 {
-  "name": "api",
+  "name": "rooky-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "nodemon app/server.js",
+    "start": "node app/server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": [
+    "Max Tötterman",
+    "Max Kern"
+  ],
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "cors": "^2.7.1",
-    "express": "^4.13.3",
-    "mongoose": "^4.3.0"
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "mongoose": "*"
   }
 }
