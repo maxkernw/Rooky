@@ -13,6 +13,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 body {
   padding: 0;
 }
+.navbar-default{
+  background-color: white;
+}
+.navbar-default .navbar-nav > li > a{
+  font-weight: bold;
+}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,

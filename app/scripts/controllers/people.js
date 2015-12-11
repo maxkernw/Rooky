@@ -7,7 +7,6 @@ function PeopleCtrl($http){
 
   $http.get('http://localhost:3000/v1/people/').success(function(result){
     app.result = result;
-    console.log(app.result);
   });
 
   app.selectPerson = function (person){

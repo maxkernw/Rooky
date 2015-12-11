@@ -1,22 +1,34 @@
 <div class="jumbotron" >
 
-  <script type="text/javascript" src="http://platform.linkedin.com/in.js">
-  api_key: 77p7nwrcf94o0x
-  authorize: true
-  </script>
   <input type="button" ng-click="main.onLinkedInLoad()" value="Sign in using LinkedIn account" />
   <input type="button" ng-click="main.getCommitData()" value="commit" />
 
+
   <input type="button" ng-click="main.onLogout()" value="Logout" />
   <pre><span>
-    <p>{{main.heppe.id}}</p>
-    <p>{{main.heppe.headline}}</p>
-    <p >{{main.heppe.firstName}}</p>
-    <p >{{main.heppe.lastName}}</p>
-    <p >{{main.heppe.email}}</p>
+    <p>{{main.user.id}}</p>
+    <p>{{main.user.headline}}</p>
+    <p >{{main.user.firstName}}</p>
+    <p >{{main.user.lastName}}</p>
+    <p >{{main.user.email}}</p>
 
-    <img src="{{main.heppe.img}}" />
+    <img src="{{main.user.img}}" />
     <input ng-show="main.fetched == true" type="text" name="name" ng-model="skills" placeholder="List your skills">
-    <button ng-show="main.fetched == true"><a href="/#/people/" type="button" ng-click="main.addToDatabase(main.heppe.email,main.heppe.firstName,main.heppe.lastName,main.heppe.id,skills,main.heppe.headline,main.heppe.img)" value="add TO database">Add</a></button>
+    <button ng-show="main.fetched == true"><a href="/#/people/" type="button" ng-click="main.addToDatabase(main.user.email,main.user.firstName,main.user.lastName,main.user.id,skills,main.user.headline,main.user.img)" value="add TO database">Add</a></button>
   </span></pre>
+
+<script type="text/javascript">
+  // 2. Runs when the JavaScript framework is loaded
+
+</script>
+<script type="IN/Login"></script>
+
+<!-- 4. Placeholder for the greeting -->
+<div id="profiles"></div>
 </div>
+<script src="./scripts/controllers/linkedin.js"></script>
+<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+api_key: 77p7nwrcf94o0x
+authorize: true
+onLoad:onLinkedInLoad
+</script>

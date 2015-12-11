@@ -9,7 +9,7 @@
   <div class=".col">
     <div class="list">
       <a class="item item-avatar" ng-repeat="resp in people.result track by $index" data-ng-click="people.selectPerson(resp)">
-        <img src="{{resp.img}}">
+        <img ng-src="{{resp.img}}">
         <h2>{{resp.firstName}}</h2>
         <p>{{resp.headline}}</p>
       </a>
