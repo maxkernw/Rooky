@@ -14,6 +14,9 @@ var personSchema = {
         type: String,
         required: true
     },
+    img:{
+      type:String
+    },
     headline: {
         type: String
     },
@@ -25,10 +28,18 @@ var personSchema = {
         type: []
     },
     threePastPositions: {
-        type: []
+        type: [{
+            id: Number,
+            title: String,
+            summary: String
+        }]
     },
     educations: {
-        type: []
+        type: [{
+            id: Number,
+            schoolName: String,
+            fieldOfStudy: String
+        }]
     }
 }
 var Person = mongoose.model('Person', personSchema, 'people')

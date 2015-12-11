@@ -15,6 +15,7 @@ function PeopleCtrl($http){
     $http.get(url).success(function(person){
       app.selectedPerson = person;
       app.selectedPerson.firstName = person.firstName;
+      app.selectedPerson.headline = person.headline;
       app.selectedPerson.extra = person.email;
       app.selectedPerson.img = person.img;
       app.selectedPerson.click = true;
