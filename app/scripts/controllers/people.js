@@ -5,15 +5,16 @@ angular.module('siteApp').controller('PeopleCtrl', PeopleCtrl);
 function PeopleCtrl($http){
   var app = this;
 
-  $http.get('http://localhost:3000/v1/people/?select=firstName').success(function(result){
-    app.people = result;
+  $http.get('http://localhost:3000/v1/people/').success(function(result){
+    app.result = result;
+    console.log(app.result);
   });
 
   app.selectPerson = function (person){
     var url = 'http://localhost:3000/v1/people/'+person._id;
     $http.get(url).success(function(person){
       app.selectedPerson = person;
-      app.selectedPerson.fullName = person.firstName + " " + person.lastName;
+      app.selectedPerson.firstName = person.firstName;
       app.selectedPerson.extra = person.email;
       app.selectedPerson.img = person.img;
       app.selectedPerson.click = true;

@@ -3,6 +3,9 @@
 var mongoose = require('mongoose')
 
 var personSchema = {
+    linkedinId: {
+        type: String
+    },
     firstName: {
         type: String,
         required: true
@@ -11,11 +14,22 @@ var personSchema = {
         type: String,
         required: true
     },
+    headline: {
+        type: String
+    },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
+    skills: {
+        type: []
+    },
+    threePastPositions: {
+        type: []
+    },
+    educations: {
+        type: []
+    }
 }
 var Person = mongoose.model('Person', personSchema, 'people')
 

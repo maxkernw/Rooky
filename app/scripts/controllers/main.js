@@ -62,16 +62,18 @@ angular.module('siteApp')
           });
       });
   };
-  app.addToDatabase = function(email,firstName,lastName,id,skills){
+  app.addToDatabase = function(email,firstName,lastName,id,skills,headline,img){
      var person = {};
      console.log(email + ' ' + firstName + ' ' + lastName + ' ' +id+  ' ' + skills);
      person.firstName = firstName;
      person.lastName = lastName;
      person.email = email;
+     person.headline = headline;
+     person.img = img;
      person.linkedinId = id;
      person.skills = skills;
 
-     //$http.post('http://localhost:3000/v1/people',person);
+     $http.post('http://localhost:3000/v1/people',person);
    }
 
  });
