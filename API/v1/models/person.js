@@ -4,7 +4,7 @@ var mongoose = require('mongoose')
 
 var personSchema = {
     linkedinId: {
-        type: Int
+        type: Number
     },
     firstName: {
         type: String,
@@ -25,10 +25,18 @@ var personSchema = {
         type: []
     },
     threePastPositions: {
-        type: []
+        type: [{
+            id: Number,
+            title: String,
+            summary: String
+        }]
     },
     educations: {
-        type: []
+        type: [{
+            id: Number,
+            schoolName: String,
+            fieldOfStudy: String
+        }]
     }
 }
 
