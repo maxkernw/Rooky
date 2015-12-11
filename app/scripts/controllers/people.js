@@ -9,9 +9,8 @@ angular.module('siteApp')
   });
 
   app.selectPerson = function (person){
-    var url = 'http://localhost:3000/v1/people/'+person.firstName;
+    var url = 'http://localhost:3000/v1/people/'+person._id;
     $http.get(url).success(function(person){
-      console.log(url + person.firstName);
       app.selectedPerson = person;
       app.selectedPerson.fullName = person.firstName + " " + person.lastName;
       app.selectedPerson.extra = person.email;

@@ -8,7 +8,7 @@
 * Controller of the siteApp
 */
 angular.module('siteApp')
-.controller('MainCtrl', function ($scope) {
+.controller('MainCtrl',['$http', function ($http) {
   var app = this;
   app.heppe = {};
 
@@ -60,4 +60,13 @@ angular.module('siteApp')
           });
       });
   };
-});
+
+  app.addToDatabase = function(username,mail){
+    var person = {};
+    person.firstName = username;
+    person.lastName = username;
+    person.email = mail;
+    $http.post('http://localhost:3000/v1/people',person);
+
+  }
+}]);
