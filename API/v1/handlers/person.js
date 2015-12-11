@@ -30,12 +30,13 @@ person.findById = function(req, res) {
 }
 
 person.update = function(req, res) {
-    controller.update(function(err, doc) {
-          if (err) res.status(400).send(err)
-
+    controller.update(
+      function(err, doc) {
+          if (err) return res.status(400).send(err)
           res.status(200).send(doc)
       },
-      req.body, req.params.id)
+      req.body,
+      req.params.id)
 }
 
 person.delete = function(req, res) {

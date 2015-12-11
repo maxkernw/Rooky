@@ -21,8 +21,8 @@ personController.create = function(callback, model) {
 }
 
 personController.update = function(callback, data, id) {
-    Person.update({_id: id}, data, function(err, doc) {
-        callback(err, doc)
+    Person.update({_id: id}, data).exec(function(err, items) {
+        callback(err, items)
     })
 }
 
