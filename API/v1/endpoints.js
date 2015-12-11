@@ -33,9 +33,9 @@ endpoints.getAllUsers = {
     url: '/v1/people',
     method: 'get',
     middleware: [],
-    description: '',
-    expectedInput: '',
-    expectedOutput: '',
+    description: 'Returns all users from the database',
+    expectedInput: 'none',
+    expectedOutput: 'A list of users in JSON format',
     handlerName: 'findAll',
     handler: function(req, res) {
         person.findAll(req, res)
@@ -46,9 +46,9 @@ endpoints.createUser = {
     url: '/v1/people',
     method: 'post',
     middleware: [],
-    description: '',
-    expectedInput: '',
-    expectedOutput: '',
+    description: 'Will create a user',
+    expectedInput: 'firstName : lastName : email',
+    expectedOutput: 'A 201 created status with location header',
     handlerName: 'create',
     handler: function(req, res) {
         person.create(req, res)
@@ -59,10 +59,10 @@ endpoints.getUser = {
     url: '/v1/people/:id',
     method: 'get',
     middleware: [],
-    description: '',
-    expectedInput: '',
-    expectedOutput: '',
-    handlerName: '',
+    description: 'Will return a single user with the specified id',
+    expectedInput: 'Id which user to fetch',
+    expectedOutput: 'A user in JSON format',
+    handlerName: 'findById',
     handler: function(req, res) {
         person.findById(req, res)
     }
@@ -72,9 +72,9 @@ endpoints.updateUser = {
     url: '/v1/people/:id',
     method: 'put',
     middleware: [],
-    description: '',
-    expectedInput: '',
-    expectedOutput: '',
+    description: 'Updates a user with the input from the body',
+    expectedInput: 'firstName | lastName | email',
+    expectedOutput: 'A 201 created status with location header',
     handlerName: '',
     handler: function(req, res) {
         person.update(req, res)
@@ -85,10 +85,10 @@ endpoints.deleteUser = {
     url: '/v1/people/:id',
     method: 'delete',
     middleware: [],
-    description: '',
-    expectedInput: '',
-    expectedOutput: '',
-    handlerName: '',
+    description: 'Deletes a user with the specified id',
+    expectedInput: 'Id',
+    expectedOutput: 'A reasonable HTTP status code',
+    handlerName: 'delete',
     handler: function(req, res) {
         person.delete(req, res)
     }

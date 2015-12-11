@@ -3,6 +3,9 @@
 var mongoose = require('mongoose')
 
 var personSchema = {
+    linkedinId: {
+        type: Int
+    },
     firstName: {
         type: String,
         required: true
@@ -11,10 +14,21 @@ var personSchema = {
         type: String,
         required: true
     },
+    headline: {
+        type: String
+    },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
+    },
+    skills: {
+        type: []
+    },
+    threePastPositions: {
+        type: []
+    },
+    educations: {
+        type: []
     }
 }
 
