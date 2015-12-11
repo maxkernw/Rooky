@@ -20,18 +20,10 @@ personController.create = function(callback, model) {
     })
 }
 
-personController.update = function(callback, data) {
-    Person.findOne(data.id, function(err, doc) {
-        for (var field in Person.schema.paths) {
-            if ((field !== '_id') && (field !== '__v')) {
-                if (data[field] !== undefined) {
-                    doc[field] = data[field];
-                }
-            }
-        }
-        doc.save()
-        callback(err, doc)
-    })
+personController.update = function(callback, data,id) {
+    Person.update({_id: id}, data).exec(function(err, items){
+        callback(err, items);
+    });
 }
 
 personController.delete = function(callback, id) {

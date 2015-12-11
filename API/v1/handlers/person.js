@@ -31,11 +31,10 @@ person.findById = function(req, res) {
 
 person.update = function(req, res) {
     controller.update(function(err, doc) {
-          if (err) return status(400).send(err)
-
+          if (err) return res.status(400).send(err)
           res.status(200).send(doc)
       },
-      req.body)
+      req.body,req.params.id)
 }
 
 person.delete = function(req, res) {
