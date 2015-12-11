@@ -9,37 +9,37 @@
  * Main module of the application.
  */
 angular
-  .module('siteApp', [
+.module('siteApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-  ])
-  .config(function ($routeProvider) {
+])
+.config(function($routeProvider) {
     $routeProvider
-      .when('/', {
+    .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
-      })
-      .when('/about', {
+    })
+    .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
-      })
-      .when('/people', {
+    })
+    .when('/people', {
         templateUrl: 'views/people.html',
         controller: 'PeopleCtrl',
         controllerAs: 'people'
-      })
-    .when('/people/:id', {
-      templateUrl: 'views/userdetail.html',
-      controller: 'UserCtrl',
-      controllerAs: 'vm'
     })
-      .otherwise({
+    .when('/people/:id', {
+        templateUrl: 'views/userdetail.html',
+        controller: 'UserCtrl',
+        controllerAs: 'vm'
+    })
+    .otherwise({
         redirectTo: '/'
-      });
-  });
+    });
+});
