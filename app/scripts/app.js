@@ -34,6 +34,11 @@ angular
         controller: 'PeopleCtrl',
         controllerAs: 'people'
       })
+    .when('/people/:id', {
+      templateUrl: 'views/userdetail.html',
+      controller: 'UserCtrl',
+      controllerAs: 'vm'
+    })
       .otherwise({
         redirectTo: '/'
       });
