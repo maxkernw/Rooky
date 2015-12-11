@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('siteApp')
-.controller('PeopleCtrl', ['$http', function ($http) {
+angular.module('siteApp').controller('PeopleCtrl', PeopleCtrl);
+
+function PeopleCtrl($http){
   var app = this;
 
   $http.get('http://localhost:3000/v1/people/?select=firstName').success(function(result){
@@ -14,6 +15,7 @@ angular.module('siteApp')
       app.selectedPerson = person;
       app.selectedPerson.fullName = person.firstName + " " + person.lastName;
       app.selectedPerson.extra = person.email;
+      app.selectedPerson.img = person.img;
       app.selectedPerson.click = true;
     });
   };
@@ -29,4 +31,5 @@ angular.module('siteApp')
       console.log('Success');
     });
   };
-}]);
+
+}

@@ -11,12 +11,13 @@
   <pre><span>
     <p>{{main.heppe.id}}</p>
     <p>{{main.heppe.headline}}</p>
-    <p >{{main.heppe.name}}</p>
+    <p >{{main.heppe.firstName}}</p>
+    <p >{{main.heppe.lastName}}</p>
     <p >{{main.heppe.email}}</p>
 
     <img src="{{main.heppe.img}}" />
-    <input type="button" ng-click="main.addToDatabase(main.heppe.email,main.heppe.name)" value="add TO database"/>
-
+    <input ng-show="main.fetched == true" type="text" name="name" ng-model="skills" placeholder="List your skills">
+    <button ng-show="main.fetched == true"><a href="/#/people/" type="button" ng-click="main.addToDatabase(main.heppe.email,main.heppe.firstName,main.heppe.lastName,main.heppe.id,skills)" value="add TO database">Add</a></button>
   </span></pre>
 
 

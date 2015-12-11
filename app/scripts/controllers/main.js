@@ -8,7 +8,7 @@
 * Controller of the siteApp
 */
 angular.module('siteApp')
-.controller('MainCtrl',['$http', function ($http) {
+.controller('MainCtrl', function ($scope,$http) {
   var app = this;
   app.heppe = {};
 
@@ -49,9 +49,11 @@ angular.module('siteApp')
               var member = result.values[0];
               app.heppe.id = member.id;
               app.heppe.headline = member.headline;
-              app.heppe.name = member.firstName + ' ' + member.lastName;
+              app.heppe.firstName = member.firstName;
+              app.heppe.lastName = member.lastName;
               app.heppe.img = member.pictureUrl;
               app.heppe.email = member.emailAddress;
+              app.fetched = true;
 
           });
       }).error(function(err) {
@@ -60,13 +62,16 @@ angular.module('siteApp')
           });
       });
   };
+  app.addToDatabase = function(email,firstName,lastName,id,skills){
+     var person = {};
+     console.log(email + ' ' + firstName + ' ' + lastName + ' ' +id+  ' ' + skills);
+     person.firstName = firstName;
+     person.lastName = lastName;
+     person.email = email;
+     person.linkedinId = id;
+     person.skills = skills;
 
-  app.addToDatabase = function(username,mail){
-    var person = {};
-    person.firstName = username;
-    person.lastName = username;
-    person.email = mail;
-    $http.post('http://localhost:3000/v1/people',person);
+     //$http.post('http://localhost:3000/v1/people',person);
+   }
 
-  }
-}]);
+ });

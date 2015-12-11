@@ -15,9 +15,8 @@ var personSchema = {
         type: String,
         required: true,
         unique: true
-    }
+    },
 }
-
 var Person = mongoose.model('Person', personSchema, 'people')
 
 module.exports = Person
