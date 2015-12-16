@@ -20,8 +20,8 @@ var personSchema = {
         type: String,
         required: true
     },
-    img:{
-      type:String
+    img: {
+        type: String
     },
     headline: {
         type: String
@@ -46,7 +46,15 @@ var personSchema = {
             schoolName: String,
             fieldOfStudy: String
         }]
-    }
+    },
+    timeSpan: {
+        type: [{
+            start: Date,
+            end: Date
+        }]
+    },
+    created_at: Date,
+    updated_at: Date
 }
 var Person = mongoose.model('Person', personSchema, 'people')
 
