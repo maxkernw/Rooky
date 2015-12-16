@@ -12,6 +12,8 @@ app.use(bodyParser.json({limit: '50mb'}))
 app.use(cors())
 app.use(v1)
 
-app.listen(3000, function() {
-    console.log('On port 3000, listening..')
+app.listen(3000, function(e) {
+    console.log('listening')
 })
+
+module.exports = app;
