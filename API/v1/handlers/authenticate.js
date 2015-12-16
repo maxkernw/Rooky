@@ -1,0 +1,15 @@
+'use strict'
+var authenticate = {}
+var controller = require('../controllers/authController')
+
+authenticate.login = function(req, res) {
+    controller.login(
+      function(err, response) {
+          if (err) return res.status(400).send(err);
+
+          res.status(200).send(response);
+      },
+      req.body)
+};
+
+module.exports = authenticate

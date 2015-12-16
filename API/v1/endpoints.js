@@ -2,6 +2,7 @@
 var endpoints = {}
 var documentation = require('./handlers/documentation')
 var person = require('./handlers/person')
+var authenticate = require('./handlers/authenticate')
 
 endpoints.ping = {
     url: '/ping',
@@ -13,6 +14,19 @@ endpoints.ping = {
     handerName: 'none',
     handler: function(req, res) {
         res.status(200).send('pong')
+    }
+}
+
+endpoints.auth = {
+    url: '/v1/authenticate',
+    method: 'post',
+    middleware: [],
+    description: 'Authenticate a user',
+    expectedInput: 'Username and password',
+    expectedOutput: 'A token',
+    handerName: 'login',
+    handler: function(req, res) {
+        authenticate.login(req, res)
     }
 }
 

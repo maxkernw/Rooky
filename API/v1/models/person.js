@@ -6,6 +6,12 @@ var personSchema = {
     linkedinId: {
         type: String
     },
+    username: {
+        type: String
+    },
+    password: {
+        type: String
+    },
     firstName: {
         type: String,
         required: true
