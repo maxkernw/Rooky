@@ -5,7 +5,7 @@ var should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Blobs', function() {
+describe('Endpoints', function() {
     it('should get a 200 response', function(done) {
         chai.request(server)
         .get('/ping')
