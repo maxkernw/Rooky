@@ -4,7 +4,6 @@ var jwt = require('jsonwebtoken');
 var Person = require('../models/Person')
 var secret = require('../config/secret')
 
-
 authController.login = function(callback, body) {
     Person.findOne({username: body.username}, function(err, foundUser) {
         if (err) throw err

@@ -6,10 +6,10 @@ authenticate.login = function(req, res) {
     controller.login(
       function(err, response) {
           if (err) return res.status(400).send(err);
-
-          res.status(200).send(response);
+          if (response.success) res.status(200).send(response)
+          res.status(400).send(err)
       },
       req.body)
-};
+}
 
 module.exports = authenticate
