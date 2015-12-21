@@ -2,10 +2,6 @@
   "name": "rooky-api",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
-  },
   "author": [
     "Max Tötterman",
     "Max Kern"
