@@ -3,6 +3,7 @@ var authController = {}
 var jwt = require('jsonwebtoken');
 var Person = require('../models/Person')
 var secret = require('../config/secret')
+var bcrypt = require('bcrypt');
 
 authController.login = function(callback, body) {
     Person.findOne({email: body.email}, function(err, foundUser) {
@@ -10,23 +11,25 @@ authController.login = function(callback, body) {
         var response = {success: false, message: 'Authentication failed. User not found.'}
         if (foundUser) {
             response = {success: false, message: 'Authentication failed. Wrong password.'}
-            if (foundUser.password === body.password) {
-                var token = jwt.sign({
-                    id: foundUser.linkedinId,
-                    user: foundUser.email
-                }, secret(), {
-                    expiresIn: 1440
-                });
-                response = {
-                    success: true,
-                    message: 'Enjoy your token!',
-                    token: token
+            bcrypt.compare(body.password, foundUser.password, function(err, res) {
+                if (err) throw err
+                if (res) {
+                    var token = jwt.sign({
+                        id: foundUser.linkedinId,
+                        user: foundUser.email
+                    }, secret(), {
+                        expiresIn: 1440
+                    });
+                    response = {
+                        success: true,
+                        message: 'Enjoy your token!',
+                        token: token
+                    }
                 }
-            }
+                callback(err, response)
+            });
         }
-        callback(err, response)
     })
 };
 
 module.exports = authController
-

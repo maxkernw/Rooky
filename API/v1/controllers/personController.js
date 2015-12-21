@@ -1,6 +1,7 @@
 'use strict'
 var personController = {}
 var Person = require('../models/Person')
+var bcrypt = require('bcrypt');
 
 personController.findAll = function(callback, select) {
     Person.find().select(select).exec(function(err, item) {
@@ -15,9 +16,14 @@ personController.findById = function(callback, id) {
 
 personController.create = function(callback, model) {
     var user = new Person(model)
-    user.save(function(err, item) {
-        callback(err, item)
-    })
+
+    bcrypt.hash(user.password, 12, function(err, hash) {
+        if (err) throw err;
+        user.password = hash;
+        user.save(function(err, item) {
+            callback(err, item)
+        })
+    });
 }
 
 personController.update = function(callback, data, id) {
