@@ -5,12 +5,6 @@ var person = require('./handlers/person')
 var authenticate = require('./handlers/authenticate')
 var tokenChecker = require('./middlewares/token-checker')
 
-/*
-function(req, res, next) {
-    middleware.checkToken(req, res, next)
-}
-*/
-
 endpoints.ping = {
     url: '/ping',
     method: 'get',
@@ -18,7 +12,7 @@ endpoints.ping = {
     description: 'Serve me a pingpong ball and check if I will send something back',
     expectedInput: 'none',
     expectedOutput: 'Response saying pong',
-    handerName: 'none',
+    handlerName: 'none',
     handler: function(req, res) {
         res.status(200).send('pong')
     }
@@ -29,9 +23,9 @@ endpoints.auth = {
     method: 'post',
     middleware: [],
     description: 'Authenticate a user',
-    expectedInput: 'Username and password',
+    expectedInput: 'Email and password',
     expectedOutput: 'A token',
-    handerName: 'login',
+    handlerName: 'login',
     handler: function(req, res) {
         authenticate.login(req, res)
     }
@@ -40,7 +34,7 @@ endpoints.auth = {
 endpoints.documentation = {
     url: '/v1/documentation/:format?',
     method: 'get',
-    middleware: [],
+    middleware: [tokenChecker],
     description: 'Get the documentation for the apit in the specified format. Supported formats: JSON',
     expectedInput: 'none',
     expectedOutput: 'The documentation of the API',
