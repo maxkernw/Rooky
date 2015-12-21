@@ -7,7 +7,7 @@ authenticate.login = function(req, res) {
       function(err, response) {
           if (err) return res.status(400).send(err);
           if (response.success) res.status(200).send(response)
-          res.status(400).send(err)
+          res.status(400).send(response)
       },
       req.body)
 }

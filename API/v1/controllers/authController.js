@@ -5,7 +5,7 @@ var Person = require('../models/Person')
 var secret = require('../config/secret')
 
 authController.login = function(callback, body) {
-    Person.findOne({username: body.username}, function(err, foundUser) {
+    Person.findOne({email: body.email}, function(err, foundUser) {
         if (err) throw err
         var response = {success: false, message: 'Authentication failed. User not found.'}
         if (foundUser) {
@@ -23,7 +23,7 @@ authController.login = function(callback, body) {
         }
         callback(err, response)
     })
-}
+};
 
 module.exports = authController
 
