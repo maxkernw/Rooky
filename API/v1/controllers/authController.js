@@ -11,7 +11,10 @@ authController.login = function(callback, body) {
         if (foundUser) {
             response = {success: false, message: 'Authentication failed. Wrong password.'}
             if (foundUser.password === body.password) {
-                var token = jwt.sign(foundUser, secret(), {
+                var token = jwt.sign({
+                    id: foundUser.linkedinId,
+                    user: foundUser.email
+                }, secret(), {
                     expiresIn: 1440
                 });
                 response = {

@@ -3,11 +3,18 @@ var endpoints = {}
 var documentation = require('./handlers/documentation')
 var person = require('./handlers/person')
 var authenticate = require('./handlers/authenticate')
+var tokenChecker = require('./middlewares/token-checker')
+
+/*
+function(req, res, next) {
+    middleware.checkToken(req, res, next)
+}
+*/
 
 endpoints.ping = {
     url: '/ping',
     method: 'get',
-    middleware: [],
+    middleware: [tokenChecker],
     description: 'Serve me a pingpong ball and check if I will send something back',
     expectedInput: 'none',
     expectedOutput: 'Response saying pong',

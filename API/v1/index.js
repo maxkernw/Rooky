@@ -7,8 +7,9 @@ var app = express()
 for (var key in endpoints) {
     var endpoint = endpoints[key]
 
-    if (endpoint.middleware)
+    if (endpoint.middleware) {
         app[endpoint.method](endpoint.url, endpoint.middleware, endpoint.handler)
+    }
     else
         app[endpoint.method](endpoint.url, endpoint.handler)
 }
