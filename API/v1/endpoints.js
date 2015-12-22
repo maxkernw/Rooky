@@ -4,15 +4,16 @@ var documentation = require('./handlers/documentation')
 var person = require('./handlers/person')
 var authenticate = require('./handlers/authenticate')
 var tokenChecker = require('./middlewares/token-checker')
+var apiChecker = require('./middlewares/apikey-checker')
 
-endpoints.ping = {
-    url: '/ping',
-    method: 'get',
-    middleware: [tokenChecker],
-    description: 'Serve me a pingpong ball and check if I will send something back',
-    expectedInput: 'none',
-    expectedOutput: 'Response saying pong',
-    handlerName: 'none',
+endpoints.register = {
+    url: '/v1/register',
+    method: 'post',
+    middleware: [apiChecker],
+    description: 'Will register a user for an API key.',
+    expectedInput: '',
+    expectedOutput: 'Random string',
+    handlerName: '',
     handler: function(req, res) {
         res.status(200).send('pong')
     }
