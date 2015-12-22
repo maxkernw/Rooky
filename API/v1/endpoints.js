@@ -23,7 +23,7 @@ endpoints.register = {
 endpoints.auth = {
     url: '/v1/authenticate',
     method: 'post',
-    middleware: [],
+    middleware: [requireApiKey],
     description: 'Authenticate a user',
     expectedInput: 'Email and password',
     expectedOutput: 'A token',
@@ -49,7 +49,7 @@ endpoints.documentation = {
 endpoints.getAllUsers = {
     url: '/v1/people',
     method: 'get',
-    middleware: [tokenChecker],
+    middleware: [requireApiKey],
     description: 'Returns all users from the database',
     expectedInput: 'none',
     expectedOutput: 'A list of users in JSON format',
@@ -62,7 +62,7 @@ endpoints.getAllUsers = {
 endpoints.createUser = {
     url: '/v1/people',
     method: 'post',
-    middleware: [],
+    middleware: [requireApiKey],
     description: 'Will create a user',
     expectedInput: 'firstName : lastName : email',
     expectedOutput: 'A 201 created status with location header',
@@ -75,7 +75,7 @@ endpoints.createUser = {
 endpoints.getUser = {
     url: '/v1/people/:id',
     method: 'get',
-    middleware: [],
+    middleware: [requireApiKey],
     description: 'Will return a single user with the specified id',
     expectedInput: 'Id which user to fetch',
     expectedOutput: 'A user in JSON format',
@@ -88,7 +88,7 @@ endpoints.getUser = {
 endpoints.updateUser = {
     url: '/v1/people/:id',
     method: 'put',
-    middleware: [],
+    middleware: [requireApiKey],
     description: 'Updates a user with the input from the body',
     expectedInput: 'firstName | lastName | email',
     expectedOutput: 'A 201 created status with location header',
@@ -101,7 +101,7 @@ endpoints.updateUser = {
 endpoints.deleteUser = {
     url: '/v1/people/:id',
     method: 'delete',
-    middleware: [],
+    middleware: [requireApiKey],
     description: 'Deletes a user with the specified id',
     expectedInput: 'Id',
     expectedOutput: 'A reasonable HTTP status code',
