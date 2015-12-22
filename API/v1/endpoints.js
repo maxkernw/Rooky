@@ -23,7 +23,7 @@ endpoints.register = {
 endpoints.auth = {
     url: '/v1/authenticate',
     method: 'post',
-    middleware: [requireApiKey],
+    middleware: [],
     description: 'Authenticate a user',
     expectedInput: 'Email and password',
     expectedOutput: 'A token',
@@ -75,7 +75,7 @@ endpoints.createUser = {
 endpoints.getUser = {
     url: '/v1/people/:id',
     method: 'get',
-    middleware: [requireApiKey],
+    middleware: [requireApiKey, tokenChecker],
     description: 'Will return a single user with the specified id',
     expectedInput: 'Id which user to fetch',
     expectedOutput: 'A user in JSON format',
