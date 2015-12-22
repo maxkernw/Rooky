@@ -29,7 +29,7 @@ authController.login = function(callback, body) {
                 callback(err, response)
             });
         }
-    })
+    }).select('+password')
 };
 
 module.exports = authController

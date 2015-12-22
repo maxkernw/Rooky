@@ -7,7 +7,8 @@ var personSchema = {
         type: String
     },
     password: {
-        type: String
+        type: String,
+        select: false
     },
     firstName: {
         type: String,

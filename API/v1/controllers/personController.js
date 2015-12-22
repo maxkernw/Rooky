@@ -17,7 +17,7 @@ personController.findById = function(callback, id) {
 personController.create = function(callback, model) {
     var user = new Person(model)
 
-    bcrypt.hash(user.password, 12, function(err, hash) {
+    bcrypt.hash(user.password, 10, function(err, hash) {
         if (err) throw err;
         user.password = hash;
         user.save(function(err, item) {
