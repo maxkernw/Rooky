@@ -1,6 +1,7 @@
 'use strict'
 var endpoints = {}
 var documentation = require('./handlers/documentation')
+var keyGenerator = require('./handlers/keys')
 var person = require('./handlers/person')
 var authenticate = require('./handlers/authenticate')
 var tokenChecker = require('./middlewares/token-checker')
@@ -9,13 +10,13 @@ var apiChecker = require('./middlewares/apikey-checker')
 endpoints.register = {
     url: '/v1/register',
     method: 'post',
-    middleware: [apiChecker],
+    middleware: [],
     description: 'Will register a user for an API key.',
     expectedInput: '',
-    expectedOutput: 'Random string',
+    expectedOutput: 'Random API-key string',
     handlerName: '',
     handler: function(req, res) {
-        res.status(200).send('pong')
+        keyGenerator.createUser(req, res)
     }
 }
 
@@ -35,7 +36,7 @@ endpoints.auth = {
 endpoints.documentation = {
     url: '/v1/documentation/:format?',
     method: 'get',
-    middleware: [tokenChecker],
+    middleware: [apiChecker],
     description: 'Get the documentation for the apit in the specified format. Supported formats: JSON',
     expectedInput: 'none',
     expectedOutput: 'The documentation of the API',
@@ -48,7 +49,7 @@ endpoints.documentation = {
 endpoints.getAllUsers = {
     url: '/v1/people',
     method: 'get',
-    middleware: [],
+    middleware: [tokenChecker],
     description: 'Returns all users from the database',
     expectedInput: 'none',
     expectedOutput: 'A list of users in JSON format',

@@ -5,9 +5,9 @@ var controller = require('../controllers/authController')
 authenticate.login = function(req, res) {
     controller.login(
       function(err, response) {
-          if (err) return res.status(400).send(err);
-          if (response.success) return res.status(200).send(response)
-          return res.status(400).send(response)
+          if (err) res.status(400).send(err);
+          if (response.success) res.status(200).send(response)
+          if (!response.success)res.status(400).send(response)
       },
       req.body)
 }
