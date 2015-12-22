@@ -5,7 +5,7 @@ var keyGenerator = require('./handlers/keys')
 var person = require('./handlers/person')
 var authenticate = require('./handlers/authenticate')
 var tokenChecker = require('./middlewares/token-checker')
-var apiChecker = require('./middlewares/apikey-checker')
+var requireApiKey = require('./middlewares/apikey-checker')
 
 endpoints.register = {
     url: '/v1/register',
@@ -16,7 +16,7 @@ endpoints.register = {
     expectedOutput: 'Random API-key string',
     handlerName: '',
     handler: function(req, res) {
-        keyGenerator.createUser(req, res)
+        keyGenerator.create(req, res)
     }
 }
 
@@ -36,7 +36,7 @@ endpoints.auth = {
 endpoints.documentation = {
     url: '/v1/documentation/:format?',
     method: 'get',
-    middleware: [apiChecker],
+    middleware: [requireApiKey],
     description: 'Get the documentation for the apit in the specified format. Supported formats: JSON',
     expectedInput: 'none',
     expectedOutput: 'The documentation of the API',
