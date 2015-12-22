@@ -1,5 +1,4 @@
 'use strict'
-
 var mongoose = require('mongoose')
 
 var personSchema = {
@@ -33,14 +32,12 @@ var personSchema = {
     },
     threePastPositions: {
         type: [{
-            id: Number,
             title: String,
             summary: String
         }]
     },
     educations: {
         type: [{
-            id: Number,
             schoolName: String,
             fieldOfStudy: String
         }]
@@ -50,10 +47,9 @@ var personSchema = {
             start: Date,
             end: Date
         }]
-    },
-    created_at: Date,
-    updated_at: Date
+    }
 }
-var Person = mongoose.model('Person', personSchema, 'people')
+
+var Person = mongoose.model('Person', personSchema)
 
 module.exports = Person
