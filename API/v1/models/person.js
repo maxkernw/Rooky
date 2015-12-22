@@ -7,6 +7,7 @@ var personSchema = {
     },
     password: {
         type: String,
+        required: true,
         select: false
     },
     firstName: {

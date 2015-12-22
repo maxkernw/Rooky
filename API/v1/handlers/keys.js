@@ -14,8 +14,7 @@ users.create = function(req, res) {
 }
 
 function createKey(){
-    return Math.random().toString(36).replace(/[^a-z1-9]+/, '').substr(0, 15);
-
+    return Math.random().toString(36).replace(/[^a-z1-9]+/, '').substr(0, 15)
 }
 
 module.exports = users
